@@ -144,22 +144,35 @@ footer {
   justify-self: center;
 }
 
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .container img {
   border: solid 10px #50C7C7;
   margin: 10px;
   width: 300px;
   height: 200px;
 }
-.container {
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-}
 
 h2{
   text-align: center;
   color: wheat;
+}
+
+@media all and (min-width: 900px){
+  .container{
+    justify-content: center;
+  }
+  .container img{
+    width: 600px;
+    height: 400px;
+  }
+  h2{
+    color: white;
+  }
 }
 
 .predict img{
