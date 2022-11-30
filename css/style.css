@@ -175,6 +175,19 @@ h2{
   }
 }
 
+@media all and (min-width: 1400px){
+  .container{
+    justify-content: center;
+  }
+  .container img{
+    width: 400px;
+    height: 266px;
+  }
+  h2{
+    color: white;
+  }
+}
+
 .predict img{
   width: 100%;
   height: auto;
@@ -261,6 +274,7 @@ h2{
   display: grid;
   grid-template-columns: 50% 50%;
   width: 100%;
+  justify-items: center;
 }
 
 
@@ -272,6 +286,7 @@ h2{
   align-items: center;
   display: flex;
   flex-direction: column;
+  justify-items: center;
 }
 
 .name h6{
@@ -287,9 +302,27 @@ h2{
   text-align: center;
 }
 
+@media all and (min-width: 900px){
+  .list {
+    grid-template-columns: 33% 33% 33%;
+    width: 100%;
+    justify-content: space-evenly;
+    justify-items: center;
+    align-content: space-evenly;
+    place-content: center;
+    /* align-items: center; */
+  }
+  .mane{
+    grid-column-start: 2;
+  }
+}
+
 @media all and (min-width: 1400px){
   .list {
     grid-template-columns: 20% 20% 20% 20% 20%;
     width: 100%;
+  }
+  .mane{
+    grid-column-start: 5;
   }
 }
