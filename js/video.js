@@ -1,62 +1,20 @@
-var video;
+function addListeners(parentClass){
+    var focusableItems = ['a[href]', 'area[href]', 'input:not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', '[tabindex="0"]'];
+    for (i = 0, leni = focusableItems.length; i < leni; i++) {
+        var focusableElements = document.querySelectorAll("." + parentClass + " " + focusableItems[i]);
+        for (j = 0, lenj = focusableElements.length; j < lenj; j++) {
+            focusableElements[j].addEventListener("focus", function() {
+              document.querySelector("." + parentClass).classList.add("focus-within");
+            });
+            focusableElements[j].addEventListener("blur", function() {
+              document.querySelector("." + parentClass).classList.remove("focus-within");
+            });
+        }
+    }
+}
+addListeners("flip-card");
 
-window.addEventListener("load", function() {
-	console.log("Good job opening the window")
-	video = document.querySelector('video');
-	video.autoplay = false;
-	video.loop = false;
-	video.load();
-});
-document.querySelector("#play").addEventListener("click", function(){
-	console.log("Play Video");
-	video.play();
-	document.getElementById("volume").innerHTML = (video.volume * 100).toString() + '%';
-});
-document.querySelector("#pause").addEventListener("click", function(){
-	console.log("Pause Video");
-	video.pause();
-});
-document.querySelector("#slower").addEventListener("click", function(){
-	video.playbackRate *= 0.9;
-	console.log(video.playbackRate);
-});
-document.querySelector("#faster").addEventListener("click", function(){
-	video.playbackRate /= 0.9;
-	console.log(video.playbackRate);
-});
-document.querySelector("#skip").addEventListener("click", function(){
-	console.log("Skip Video");
-	if(video.currentTime+10>=video.duration){
-		video.currentTime = 0;
-	}
-	else{
-		video.currentTime+=10;
-	}
-	console.log(video.currentTime);
-});
-document.querySelector("#mute").addEventListener("click", function(){
-	if(video.muted){
-		video.muted = false;
-		document.getElementById("mute").innerHTML= "Mute";
-	}
-	else{
-		video.muted = true;
-		document.getElementById("mute").innerHTML= "Unmute";
-	}
-});
-document.querySelector("#slider").addEventListener("click", function(){
-	video.volume = slider.value/100;
-	document.getElementById("volume").innerHTML= video.volume*100+"%";
-});
-document.querySelector('#vintage').addEventListener("click", function() {
-	video.classList.add('oldSchool');
-});
-
-document.querySelector('#orig').addEventListener("click", function() {
-	video.classList.remove('oldSchool');
-});
-
-
-// document.querySelector("#play").addEventListener("click", function() {
-// 	console.log("Play Video");
-// });
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
